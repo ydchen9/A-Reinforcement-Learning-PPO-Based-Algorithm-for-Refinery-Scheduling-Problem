@@ -59,22 +59,10 @@ OPC = 388.2   # crude oil cost per ton
 apoc = 50.0    # inv cost
 apo = 75.0    # inv cost
 bp = 30000.  # penalty for stockout of order l per ton
-# PRO = [97,99.,96.,93.,89.,0.,0.,0.,
-#        0.,0.,0.,0.,0.,48.,49.,59.,
-#        0.0001,0.0002,0.0004,0.02,0.03,0.001,0.001,0.038,
-#        0.,0.,0.,0.,0.,1.68,1.1,1.6] #P /RON,S,CN,CPF/  # PRO(P,OC)
-PRO = [#96.,98.,99.,93.,89.,0.,0.,0.,
-       83.,100.,117.,93.,90.,0.,0.,0.,
-       #0.,0.,0.,0.,0.,48.,49.,59.,
+PRO = [83.,100.,117.,93.,90.,0.,0.,0.,
        0.,0.,0.,0.,0.,47.,55.,48.,
-       #0.0001,0.0002,0.0004,0.02,0.03,0.038,0.002,0.001,
        0.0001,0.0002,0.04,0.01,0.02,0.001,0.001,0.038,
-       #0.0001,0.0001,0.05,0.01,0.01,0.038,0.002,0.001,
        0.,0.,0.,0.,0.,1.68,1.1,1.6] #P /RON,S,CN,CPF/  # PRO(P,OC)
-# PRO = [94.,99.,94.,98.,89.,0.,0.,0.,
-#        0.,0.,0.,0.,0.,48.,49.,59.,
-#        0.0001,0.0002,0.0004,0.02,0.03,0.001,0.001,0.038,
-#        0.,0.,0.,0.,0.,1.68,1.1,1.6] #P /RON,CN,S,CPF/  # PRO(P,OC)
 
 PROMAX = [0.]*numP*numO
 PROMAX[16:24] = [0.0005,0.0006,0.015,0.015,0.015,0.035,0.035,0.01] # PROMAX(P,O) S content unit is %
@@ -89,10 +77,6 @@ rMIN = [0.]*numOC*numO  #  rMIN(OC,O)
 rMAX = [1.]*numOC*numO
 rMAX[16:21] = [0.1]*5  # rMAX(OC,O)
 TTlist = [3,2,1]
-# case 1  2 orders ####
-# DV = [[100.,400.,200.,100.,550.,1000.,600.,700.],
-#       [200.,300.,100.,100.,700.,800.,700.,900.]] # numL*numO
-# DT = [[1, 1, 1, 1, 1, 1, 0, 0], [0, 0, 1, 1, 1, 1, 1, 1]]
 QIinputL = [200.,300.,0.,300.,0.,300.,5.,300.,0.,300.,5.,300.,0.,300.,0.,300.,0.,300.]  # numU*2
 OCtankLmin = [0]*numOC
 OCtankLmax = [4000]*numOC
@@ -2762,9 +2746,6 @@ max_b= [341.937653, 188.276382, 140.889297, 119.279083, 107.312958, 100.235542, 
 
 MeanMinMax_l = np.array([mean_l,min_l,max_l],dtype='float32')
 MeanMinMax_b = np.array([mean_b,min_b,max_b],dtype='float32')
-# save_dirname_l = "PRO_NN_n_num_allslot1215_O1_RL.model2-I" # ********* FOR PDA ***********
-# model_filename_l = "1215O.model"
-# params_filename_l = "1215O.param"
 # save_dirname_l = "PRO_RL_Policy_all-3" # ********* FOR TRL ***********
 # model_filename_l = "all_policy.model"
 # params_filename_l = "all_policy.param"
@@ -2783,10 +2764,10 @@ input_b_num = 0 # 19+9+16
 output_num_l = 0
 output_num_b = 0
 CASE = [
-        # 'read-case-all_100-0', # also for Table5.2
+        # 'read-case-all_100-0', 
         # 'read-case-all_100-6',
-        # 'read-case-all_100-12',  # also for Table5.2
-        # 'read-case-all_100-18', # also for Table5.2
+        # 'read-case-all_100-12',  
+        # 'read-case-all_100-18', 
         # 'read-case-all_120-1',
         # 'read-case-all_120-7',
         # 'read-case-all_120-13',
@@ -2796,17 +2777,17 @@ CASE = [
         # 'read-case-all_140-14',
         # 'read-case-all_140-20',
         # 'read-case-all_160-3',
-        # 'read-case-all_160-9', # also for Table5.2
-        # 'read-case-all_160-15', # also for Table5.2
-        # 'read-case-all_160-21',  # also for Table5.2
+        # 'read-case-all_160-9', 
+        # 'read-case-all_160-15', 
+        # 'read-case-all_160-21', 
         # 'read-case-all_180-4',
         # 'read-case-all_180-10',
         # 'read-case-all_180-16',
         # 'read-case-all_180-22',
         # 'read-case-all_200-5', #
-        # 'read-case-all_200-11', # also for Table5.2
-        # 'read-case-all_200-17',  # also for Table5.2
-        # 'read-case-all_200-23',  # also for Table5.2
+        # 'read-case-all_200-11', 
+        # 'read-case-all_200-17', 
+        # 'read-case-all_200-23',  
         # 'VS-case1-9-13slots2-1.6'   # ********* FOR THE DETAILS OF SCHEDULING ***********
 
         ]
